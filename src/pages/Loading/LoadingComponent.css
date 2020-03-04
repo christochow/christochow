@@ -1,0 +1,19 @@
+.App-logo {
+    height: 100px;
+    pointer-events: none;
+    animation: spin 1s linear infinite
+  }
+
+  .wrapper {
+    padding-top: 35vh;
+  }
+
+  @keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+  }
+
+
+.container {
+    height: 100vh;
+}

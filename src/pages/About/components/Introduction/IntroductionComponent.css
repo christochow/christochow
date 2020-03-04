@@ -1,0 +1,20 @@
+.container-intro {
+    height: 100vh;
+    padding-top: 10vh;
+}
+
+.text-box {
+    padding-left: 5vw;
+    padding-right: 5vw;
+}
+
+.to-project {
+    background-color: white;
+    border-color: black;
+}
+
+.to-project a {
+    text-decoration: none;
+    background-color: white;
+    color: #000;
+}

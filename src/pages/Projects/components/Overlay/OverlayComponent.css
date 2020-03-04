@@ -1,0 +1,13 @@
+.link-container {
+  display: flex;
+  justify-self: center;
+}
+
+.space {
+    width: 15px;
+    height: 1px;
+}
+
+button {
+    font-size: medium;
+}

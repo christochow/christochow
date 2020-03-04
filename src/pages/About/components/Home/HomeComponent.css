@@ -1,0 +1,24 @@
+.title {
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: black;
+    padding-top: 30vh;
+    margin-bottom: 10vh;
+  }
+
+  .container-home {
+    height: 100vh;
+    margin-bottom: 1px;
+  }
+
+  .more-below {
+    position: absolute;
+    bottom: 5vh;
+    left: 40vw;
+  }
+
+  .more-below button {
+    border: 1px solid black;
+    cursor: pointer;
+  }

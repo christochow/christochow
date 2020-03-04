@@ -1,0 +1,13 @@
+.container-projects {
+    height: 100vh;
+    padding-top: 5vh;
+}
+
+.text-box {
+    padding-left: 5vw;
+    padding-right: 5vw;
+}
+
+a {
+    text-decoration: none;
+}
