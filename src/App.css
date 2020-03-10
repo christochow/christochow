@@ -3,10 +3,11 @@
   height: 100vh;
   text-align: center;
   margin: 0;
+  -ms-overflow-style: none;
 }
 
-.logo {
-  position: absolute;
+body::-webkit-scrollbar {
+  display: none;
 }
 
 .transition-enter {
@@ -86,6 +87,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
   background: #373a47;
   padding: 2.5em 1.5em 0;
   font-size: 1.15em;
+  overflow-y: hidden !important;
 }
 
 /* Morph shape necessary with bubble or elastic */

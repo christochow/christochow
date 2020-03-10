@@ -26,6 +26,11 @@ function App() {
   showTitle(show, setShow, setLoading);
   const toggleNavBar = () => setNavBar(!openNavBar)
   const onStateChange = (state) => {
+    if(state.isOpen){
+     document.body.setAttribute("style", "overflow: hidden")   
+    } else {
+      document.body.setAttribute("style", "overflow: visible")
+    }
     if (state.isOpen !== openNavBar) {
       setNavBar(state.isOpen);
     }
