@@ -19,14 +19,14 @@ function App() {
   const [show, setShow] = useState(false);
   const [openNavBar, setNavBar] = useState(false);
   const history = useHistory();
-  useEffect(()=>{
-    let listener = history.listen(()=>window.scrollTo(0,0));
-    return ()=>listener();
+  useEffect(() => {
+    let listener = history.listen(() => window.scrollTo(0, 0));
+    return () => listener();
   })
   showTitle(show, setShow, setLoading);
-  const toggleNavBar = ()=>setNavBar(!openNavBar)
+  const toggleNavBar = () => setNavBar(!openNavBar)
   const onStateChange = (state) => {
-    if(state.isOpen!==openNavBar){
+    if (state.isOpen !== openNavBar) {
       setNavBar(state.isOpen);
     }
   }
@@ -37,20 +37,20 @@ function App() {
       </CSSTransition>
       <CSSTransition in={show} timeout={1000} classNames="transition" unmountOnExit>
         <div>
-        
+
           <Menu isOpen={openNavBar} onStateChange={onStateChange}>
             <NavLink onClick={toggleNavBar} className="menu-item" to="/about">Home</NavLink>
             <NavLink onClick={toggleNavBar} className="menu-item" to="/projects">Projects</NavLink>
           </Menu>
-          
+
           <Switch>
-            <Route path='/about'><AboutPage/></Route>
-            <Route path='/projects'><Projects/></Route>
-            <Redirect to='/about'/>
+            <Route path='/about'><AboutPage /></Route>
+            <Route path='/projects'><Projects /></Route>
+            <Redirect to='/about' />
           </Switch>
         </div>
-        </CSSTransition>
-      
+      </CSSTransition>
+
     </div>
   );
 }
