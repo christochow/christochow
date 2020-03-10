@@ -20,14 +20,14 @@ function ProjectDetails(props) {
                     <h3>{projectList[0].title}</h3>
                     {projectList[0].body}
                     </div>
-                    <div className="overlay"><Overlay/></div>
+                    <div className="overlay"><Overlay detail={projectList[0]}/></div>
                 </div>
                 {projectList.length === 2 && <div className="project-description">
                     <div className="description">
                     <h3>{projectList[1].title}</h3>
                     {projectList[1].body}
                     </div>
-                    <div className="overlay"><Overlay/></div>
+                    <div className="overlay"><Overlay detail={projectList[1]}/></div>
                 </div>}
             </div>
         </div>
