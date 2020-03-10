@@ -20,5 +20,6 @@
 
   .more-below button {
     border: 1px solid black;
+    background-color: white;
     cursor: pointer;
   }
