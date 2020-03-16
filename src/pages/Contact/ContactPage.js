@@ -1,5 +1,5 @@
 import React from 'react';
-import './ContactPage.css'
+import './ContactPage.css';
 import { CSSTransition } from 'react-transition-group';
 import linkedIn from '../../assets/linkedin.png';
 

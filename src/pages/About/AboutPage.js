@@ -6,7 +6,7 @@ function AboutPage() {
     const ref = React.useRef();
     return (
         <div>
-            <Home reference={ref}/>
+            <Home reference={ref} />
             <Introduction reference={ref} />
         </div>
     );

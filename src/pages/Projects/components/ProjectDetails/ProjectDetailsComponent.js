@@ -7,9 +7,9 @@ function ProjectDetails(props) {
     const [projectList, setList] = useState([]);
     useEffect(() => {
         setList(props.projectList);
-        return () => {}
+        return () => { }
     }, [props.projectList])
-    if(projectList.length === 0){
+    if (projectList.length === 0) {
         return (<div></div>)
     }
     return (
@@ -17,17 +17,17 @@ function ProjectDetails(props) {
             <div className="projects-box">
                 <div className="project-description">
                     <div className="description">
-                    <h3>{projectList[0].title}</h3>
-                    {projectList[0].body}
+                        <h3>{projectList[0].title}</h3>
+                        {projectList[0].body}
                     </div>
-                    <div className="overlay"><Overlay detail={projectList[0]}/></div>
+                    <div className="overlay"><Overlay detail={projectList[0]} /></div>
                 </div>
                 {projectList.length === 2 && <div className="project-description">
                     <div className="description">
-                    <h3>{projectList[1].title}</h3>
-                    {projectList[1].body}
+                        <h3>{projectList[1].title}</h3>
+                        {projectList[1].body}
                     </div>
-                    <div className="overlay"><Overlay detail={projectList[1]}/></div>
+                    <div className="overlay"><Overlay detail={projectList[1]} /></div>
                 </div>}
             </div>
         </div>
