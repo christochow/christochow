@@ -6,6 +6,7 @@ import Loading from './pages/Loading/LoadingComponent'
 import Projects from './pages/Projects/ProjectsPage';
 import './App.css';
 import { Switch, Route, Redirect, NavLink, useHistory } from 'react-router-dom';
+import Contact from './pages/Contact/ContactPage';
 
 function showTitle(show, setShow, setLoading) {
   setTimeout(() => {
@@ -46,11 +47,13 @@ function App() {
           <Menu isOpen={openNavBar} onStateChange={onStateChange}>
             <NavLink onClick={toggleNavBar} className="menu-item" to="/about">Home</NavLink>
             <NavLink onClick={toggleNavBar} className="menu-item" to="/projects">Projects</NavLink>
+            <NavLink onClick={toggleNavBar} className="menu-item" to="/contact">Contact</NavLink>
           </Menu>
 
           <Switch>
             <Route path='/about'><AboutPage /></Route>
             <Route path='/projects'><Projects /></Route>
+            <Route path='/contact'><Contact /></Route>
             <Redirect to='/about' />
           </Switch>
         </div>
