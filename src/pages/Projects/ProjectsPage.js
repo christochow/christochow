@@ -1,7 +1,8 @@
 import React from 'react';
 import './ProjectsPage.css'
 import { CSSTransition } from 'react-transition-group';
-import ProjectDetails from './components/ProjectDetails/ProjectDetailsComponent'
+import ProjectDetails from './components/ProjectDetails/ProjectDetailsComponent';
+import github from '../../assets/github.png';
 
 const projects = [
     [
@@ -51,6 +52,12 @@ function Projects(props) {
             <CSSTransition in={isVisible} timeout={1000} classNames="vertical-transition" unmountOnExit>
                 <div className="text-box">
                     <h1>Projects</h1>
+                    <div className="github">
+                        <h4>Github:</h4>
+                        <a href="https://github.com/christochow" target="_blank" rel="noopener noreferrer">
+                                <img className="linkedin-logo" src={github} alt="logo" />
+                            </a>
+                    </div>
                     {projects.map(e => < ProjectDetails projectList={e} key={e[0].title} />)}
                 </div>
             </CSSTransition>

@@ -11,3 +11,9 @@
 a {
     text-decoration: none;
 }
+
+.github {
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+}
