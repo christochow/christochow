@@ -25,7 +25,11 @@ function Contact() {
                             <h4>Email:</h4> <a href="mailto:lok.chow@mail.utoronto.ca">lok.chow@mail.utoronto.ca</a>
                         </div>
                     </div>
-                    <div className="declaration">Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+                </div>
+            </CSSTransition>
+            <CSSTransition in={isVisible} timeout={1000} classNames="transition" unmountOnExit>
+                <div className="declaration">
+                    Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
                 </div>
             </CSSTransition>
         </div>
