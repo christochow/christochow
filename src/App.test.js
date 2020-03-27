@@ -1,16 +1,9 @@
 import React from 'react';
 import { render, waitForElement} from '@testing-library/react';
 import { isDOMComponent } from 'react-dom/test-utils';
+import Loading from './pages/Loading/LoadingComponent'
 import App from './App';
 
-
-const observe = jest.fn();
-const unobserve = jest.fn();
-
-window.IntersectionObserver = jest.fn(function () {
-  this.observe = observe;
-  this.unobserve = unobserve;
-});
 
 jest.mock('react-transition-group', () => {
   const FakeCSSTransition = jest.fn(props => {
@@ -18,7 +11,31 @@ jest.mock('react-transition-group', () => {
   }
   )
   return { CSSTransition: FakeCSSTransition }
-})
+});
+
+jest.mock('./pages/Loading/LoadingComponent');
+Loading.mockImplementation(()=><div>Loading...</div>)
+
+jest.mock('react-router-dom', ()=>{
+  return {
+    Switch: jest.fn().mockImplementation(()=>{
+      return <div><h1>Hi,</h1></div>
+    }),
+    Redirect: jest.fn().mockImplementation(()=>{
+      return <div></div>
+    }),
+    Route: jest.fn().mockImplementation(()=>{
+      return <div></div>
+    }),
+    NavLink: jest.fn().mockImplementation(()=>{
+      return <div></div>
+    }),
+    useHistory:jest.fn().mockImplementation(()=>{
+    return {
+      listen:jest.fn().mockImplementation(()=>jest.fn())
+    }
+    })
+}});
 
 test('renders Loading first and then About page', async () => {
   const element = render(<App />);
