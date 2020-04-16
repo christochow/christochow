@@ -1,6 +1,6 @@
-const StateClass = require('../Game/State');
+import {fromState} from '../Game/State';
 
-function AI(){
+export default function AI(){
 
     this.makeMove = (difficulty, state)=>{
         switch(difficulty){
@@ -30,7 +30,7 @@ function AI(){
         let pos=-1;
         let val = minOrMax === 'min' ? 1000 : -1000;
         state.getAvailablePos().forEach(e=>{
-            let newState = StateClass.fromState(state);
+            let newState = fromState(state);
             let applyActionResult = newState.applyAction(e);
             let result;
             if(applyActionResult === 'running'){
@@ -56,5 +56,3 @@ function AI(){
         return 0;
     }
 }
-
-module.exports.AI = AI;

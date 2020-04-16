@@ -1,9 +1,8 @@
 import React, {useState} from 'react';
 import { CSSTransition } from 'react-transition-group';
 import './TikTakToePage.css'
-const AI = require('./AI/AI').AI;
-const StateClass = require('./Game/State');
-const State = StateClass.State;
+import AI from './AI/AI';
+import {State} from './Game/State';
 
 function Loading() {
     const [start, setStart] = useState(false);

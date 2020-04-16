@@ -1,5 +1,4 @@
-module.exports.State = State;
-function State(turn, player, board) {
+export function State(turn, player, board) {
         let pBoard = [];
         if(board!==undefined){
             pBoard = board;
@@ -37,7 +36,7 @@ function State(turn, player, board) {
             if(pBoard[i]===pBoard[i+1] 
                 && pBoard[i+1]===pBoard[i+2] &&
                 pBoard[i] !== "E"){
-                    return determineResult(board[i]);
+                    return determineResult(pBoard[i]);
                 }
         }
         for(let a=0;a<3;a++){
@@ -54,7 +53,7 @@ function State(turn, player, board) {
             || (pBoard[2] === pBoard[4] 
                 && pBoard[4] === pBoard[6]))
                 && pBoard[4] !== "E"){
-                return determineResult(board[4])
+                return determineResult(pBoard[4])
             }
         if(!pBoard.includes("E")){
             return "draw"
@@ -70,7 +69,7 @@ function State(turn, player, board) {
         return 'AI wins!';
     }
 }
-module.exports.fromState = function fromState(state){
+export function fromState(state){
     let newState = new State(state.turn, state.player, [...state.getBoard()]);
     newState.aiMoves = state.aiMoves
     return newState;
