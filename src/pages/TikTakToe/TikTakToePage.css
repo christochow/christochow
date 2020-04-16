@@ -1,0 +1,50 @@
+.container {
+    padding-top: 10%;
+    height: 100%;
+}
+
+.setting-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10%;
+}
+
+.side-container {
+    width: 25%;
+    display: flex;
+    justify-content: center;
+}
+
+.side-container div {
+    margin: 15%;
+    font-size: 50px;
+    cursor: pointer;
+    border: black 1px solid;
+}
+
+.board {
+    align-self: center;
+}
+
+.board button {
+    font-size: xx-large;
+    height: 10%;
+    width: 10%;
+}
+
+.board button:hover {
+    font-size: xx-large;
+    height: 10%;
+    width: 10%;
+}
+
+button.highlight {
+    background-color: #8a2be2
+}
+
+button {
+    background-color: white;
+    border-color: black;
+    font-size: large;
+}
