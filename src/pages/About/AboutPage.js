@@ -2,7 +2,7 @@ import React from 'react';
 import Home from './components/Home/HomeComponent'
 import Introduction from './components/Introduction/IntroductionComponent'
 
-function AboutPage() {
+function About() {
     const ref = React.useRef();
     return (
         <div>
@@ -12,4 +12,4 @@ function AboutPage() {
     );
 }
 
-export default AboutPage;
+export default About;

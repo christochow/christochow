@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { Switch, Route, Redirect, NavLink, useHistory } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
 import { stack as Menu } from 'react-burger-menu'
-import AboutPage from './pages/About/AboutPage';
+import About from './pages/About/AboutPage';
 import Loading from './pages/Loading/LoadingComponent'
 import Projects from './pages/Projects/ProjectsPage';
-import './App.css';
-import { Switch, Route, Redirect, NavLink, useHistory } from 'react-router-dom';
 import Contact from './pages/Contact/ContactPage';
+import TikTakToe from './pages/TikTakToe/TikTakToePage';
+import './App.css';
 
 function showTitle(show, setShow, setLoading) {
   setTimeout(() => {
@@ -47,12 +48,14 @@ function App() {
           <Menu isOpen={openNavBar} onStateChange={onStateChange}>
             <NavLink onClick={toggleNavBar} className="menu-item" to="/about">Home</NavLink>
             <NavLink onClick={toggleNavBar} className="menu-item" to="/projects">Projects</NavLink>
+            <NavLink onClick={toggleNavBar} className="menu-item" to="/miniGame">MiniGame</NavLink>
             <NavLink onClick={toggleNavBar} className="menu-item" to="/contact">Contact</NavLink>
           </Menu>
 
           <Switch>
-            <Route path='/about'><AboutPage /></Route>
+            <Route path='/about'><About /></Route>
             <Route path='/projects'><Projects /></Route>
+            <Route path='/miniGame'><TikTakToe /></Route>
             <Route path='/contact'><Contact /></Route>
             <Redirect to='/about' />
           </Switch>
