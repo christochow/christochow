@@ -5,17 +5,18 @@ export default function AI(){
     this.makeMove = (difficulty, state)=>{
         switch(difficulty){
             case 'beginner':
-                return makeRandomMove(state);
+                return makeSubOptimalMove(state);
             case 'master':
                 return makeOptimalMove(state);
             default:
-                return makeSubOptimalMove(state);
+                {
+                    let rand = Math.floor(Math.random() * Math.floor(2));
+                    if(rand > 0) {
+                        return makeOptimalMove(state);
+                    }
+                    return makeSubOptimalMove(state);
+                }
         }
-    }
-
-    let makeRandomMove = (state)=>{
-        let pos = state.getAvailablePos();
-        return Math.floor(Math.random() * Math.floor(pos.length));
     }
 
     let makeSubOptimalMove = (state)=>{

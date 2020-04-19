@@ -5,11 +5,10 @@ import AI from './AI/AI';
 import {State} from './Game/State';
 
 function Loading() {
-    const [start, setStart] = useState(false);
     const [setUpDone, setSetUpDone] = useState(false);
     const [difficulty, setDifficulty] = useState('novice');
     const [board, setBoard] = useState([]);
-    const [turn, setTurn] = useState(null);
+    const [turn, setTurn] = useState('X');
     const [player, setPlayer] = useState('X');
     const [isVisible, setVisible] = React.useState(false);
     const [result, setResult] = React.useState('');
@@ -19,12 +18,24 @@ function Loading() {
     }, 100)
 
     const ai = new AI();
-    const enterSetUp = () => setStart(true);
     const startGame = ()=>{
-        state.current = new State(player, player);
-        setTurn(player);
+        console.log(turn);
+        state.current = new State(turn, player);
         setSetUpDone(true);
         setBoard([...state.current.getBoard()]);
+        if(turn!==player){
+            aiMove();
+        }
+    }
+
+    const aiMove = ()=>{
+        setTimeout(()=>{
+            let aiResult = applyAIAction();
+            setTurn(state.current.turn);
+            if(aiResult!=="running"){
+                setResult(aiResult);
+            }
+        },2000);
     }
 
     const handleUserClick = (pos)=>{
@@ -34,13 +45,7 @@ function Loading() {
             setResult(humanResult);
             return;
         }
-        setTimeout(()=>{
-            let aiResult = applyAIAction();
-        setTurn(state.current.turn);
-        if(aiResult!=="running"){
-            setResult(aiResult);
-        }
-        },2000);
+        aiMove();
     }
 
     const applyAction = (pos)=>{
@@ -53,19 +58,33 @@ function Loading() {
         let aiPos = ai.makeMove(difficulty, state.current);
         return applyAction(aiPos);
     }
+
+    const resetGame = ()=>{
+        setSetUpDone(false);
+        setPlayer('X');
+        setResult('');
+        setTurn('X');
+        setDifficulty('novice');
+        state.current = null;
+    }
     return (
         <div className="container">
             <h1>TikTakToe!</h1>
             <CSSTransition in={isVisible} timeout={1000} classNames="vertical-transition" unmountOnExit>
                 <div>
-                {!start && <button onClick={enterSetUp}><h4>Start Game</h4></button>}
-                {!setUpDone && start && 
+                {!setUpDone && 
                 <div>
-                    <div className="setting-container">                
+                    <div className="setting-container">            
                         <div className="side-container">
                             Choose your side:
-                            <button className={player==='X'?'highlight':''} onClick={()=>setPlayer('X')}>X</button>
-                            <button className={player==='O'?'highlight':''} onClick={()=>setPlayer('O')}>O</button>
+                            <button className={player==='X'?'highlight':''} onClick={()=>{
+                                setTurn(turn === player ? 'X': 'O');
+                                setPlayer('X');
+                                }}>X</button>
+                            <button className={player==='O'?'highlight':''} onClick={()=>{
+                                setTurn(turn === player ? 'O': 'X');
+                                setPlayer('O');
+                                }}>O</button>
                         </div>
                         <div>
                             Choose your difficulty:
@@ -79,11 +98,21 @@ function Loading() {
                             Master
                             </button>
                         </div>
+                        <div>
+                            Who should play first:
+                            <button className={turn===player?'highlight':''} onClick={()=>setTurn(player)}>
+                            You
+                            </button>
+                            <button className={turn!==player?'highlight':''} onClick={()=>setTurn(player === 'X' ? 'O' : 'X')}>
+                            AI
+                            </button>
+                        </div>
                     </div>
                     <button onClick={()=>startGame()}>Begin Game!</button>
                 </div>}
-                {setUpDone && start && <div>
-                    Let's start! You will make the first move, your side is {player}
+                {setUpDone &&
+                <div>
+                    Let's start! Your side is {player}
                     <br></br>
                     <h3>{result === '' ? `Current turn: ${turn}` :result}</h3>
                     <div className="board">
@@ -98,7 +127,8 @@ function Loading() {
                             })
                     }
                     </div>
-                    </div>
+                    <div><button onClick={resetGame}>Reset Game</button></div>
+                </div>
 
                 }
                 </div>

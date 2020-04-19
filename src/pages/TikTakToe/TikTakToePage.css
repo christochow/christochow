@@ -6,7 +6,7 @@
 .setting-container {
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     margin-bottom: 10%;
 }
 
@@ -25,6 +25,7 @@
 
 .board {
     align-self: center;
+    margin: 5%;
 }
 
 .board button {
