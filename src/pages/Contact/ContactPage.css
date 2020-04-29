@@ -10,7 +10,7 @@
 .email a {
     display: inline-block;
     text-decoration: none;
-    color: black;
+    color: rgb(158, 166, 175);
 }
 
 .declaration {
