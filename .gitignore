@@ -1,9 +1,11 @@
 *.code-workspace
 
 # dependencies
+.sass-cache
 /node_modules
 /.pnp
 .pnp.js
+stars.css
 
 # testing
 /coverage
