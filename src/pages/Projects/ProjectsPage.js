@@ -55,7 +55,7 @@ function Projects(props) {
                     <div className="github">
                         <h4>Github:</h4>
                         <a href="https://github.com/christochow" target="_blank" rel="noopener noreferrer">
-                            <img className="linkedin-logo" src={github} alt="logo" />
+                            <img src={github} alt="logo" />
                         </a>
                     </div>
                     {projects.map(e => < ProjectDetails projectList={e} key={e[0].title} />)}

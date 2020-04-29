@@ -3,11 +3,13 @@ import { Switch, Route, Redirect, NavLink, useHistory } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
 import { stack as Menu } from 'react-burger-menu'
 import About from './pages/About/AboutPage';
+import Introduction from './pages/Introduction/IntroductionPage';
 import Loading from './pages/Loading/LoadingComponent'
 import Projects from './pages/Projects/ProjectsPage';
 import Contact from './pages/Contact/ContactPage';
 import TikTakToe from './pages/TikTakToe/TikTakToePage';
 import './App.css';
+import './stars.css';
 
 function showTitle(show, setShow, setLoading) {
   setTimeout(() => {
@@ -39,25 +41,30 @@ function App() {
   }
   return (
     <div className="App">
-      <CSSTransition in={loading} timeout={1000} classNames="logo-transition" unmountOnExit>
+      <div id='stars'></div>
+      <div id='stars2'></div>
+      <div id='stars3'></div>
+      <CSSTransition in={loading} timeout={1000} classNames="logo-transition root-container" unmountOnExit>
         <Loading />
       </CSSTransition>
       <CSSTransition in={show} timeout={1000} classNames="transition" unmountOnExit>
         <div>
 
           <Menu isOpen={openNavBar} onStateChange={onStateChange}>
-            <NavLink onClick={toggleNavBar} className="menu-item" to="/about">Home</NavLink>
+            <NavLink onClick={toggleNavBar} className="menu-item" to="/intro">Home</NavLink>
+            <NavLink onClick={toggleNavBar} className="menu-item" to="/about">About</NavLink>
             <NavLink onClick={toggleNavBar} className="menu-item" to="/projects">Projects</NavLink>
             <NavLink onClick={toggleNavBar} className="menu-item" to="/miniGame">MiniGame</NavLink>
             <NavLink onClick={toggleNavBar} className="menu-item" to="/contact">Contact</NavLink>
           </Menu>
 
           <Switch>
+            <Route path='/intro'><Introduction /></Route>
             <Route path='/about'><About /></Route>
             <Route path='/projects'><Projects /></Route>
             <Route path='/miniGame'><TikTakToe /></Route>
             <Route path='/contact'><Contact /></Route>
-            <Redirect to='/about' />
+            <Redirect to='/intro' />
           </Switch>
         </div>
       </CSSTransition>

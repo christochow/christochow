@@ -2,7 +2,6 @@
     align-items: center;
     justify-content: center;
     font-size: calc(10px + 2vmin);
-    color: black;
     padding-top: 30vh;
     margin-bottom: 10vh;
   }
@@ -20,6 +19,5 @@
 
   .more-below button {
     border: 1px solid black;
-    background-color: white;
     cursor: pointer;
   }

@@ -14,6 +14,11 @@ a {
 
 .github {
     display: flex;
-    justify-items: center;
+    align-items: center;
     justify-content: center;
+}
+
+img {
+    color: white;
+    margin-left: 30%;
 }
