@@ -10,7 +10,12 @@ body::-webkit-scrollbar {
 }
 
 .root-container {
+  z-index: 1;
   position: absolute;
+}
+
+.transition {
+  z-index: 1;
 }
 
 .transition-enter {
