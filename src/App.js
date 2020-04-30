@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Switch, Route, Redirect, NavLink, useHistory } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
 import { stack as Menu } from 'react-burger-menu'
-import Home from './pages/About/Home';
+import Home from './pages/Home/Home';
 import Loading from './pages/Loading/LoadingComponent'
 import Projects from './pages/Projects/ProjectsPage';
 import Contact from './pages/Contact/ContactPage';
