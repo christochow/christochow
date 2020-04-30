@@ -1,27 +1,26 @@
 import React from 'react';
-import './AboutPage.css'
+import './AboutComponent.css'
 import { CSSTransition } from 'react-transition-group';
 import { NavLink } from 'react-router-dom';
 
 
 function About(props) {
     const [isVisible, setVisible] = React.useState(false);
-    const reference = React.useRef(null);
     React.useEffect(() => {
         const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
                 setVisible(entry.isIntersecting);
                 if (entry.isIntersecting) {
-                    observer.unobserve(reference.current);
+                    observer.unobserve(props.reference.current);
                 }
             });
         });
-        observer.observe(reference.current);
-        const oldVal = reference.current;
+        observer.observe(props.reference.current);
+        const oldVal = props.reference.current;
         return () => observer.unobserve(oldVal);
     });
     return (
-        <div ref={reference} className="container-intro">
+        <div ref={props.reference} className="container-intro">
             <CSSTransition in={isVisible} timeout={1000} classNames="transition" unmountOnExit>
                 <div className="text-box">
                     <h1>About myself</h1>
