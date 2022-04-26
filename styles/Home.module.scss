@@ -1,0 +1,34 @@
+.containerIntro {
+    height: 100vh;
+}
+
+.textBox {
+    padding-top: 10vh;
+    padding-left: 5vw;
+    padding-right: 5vw;
+}
+
+.title {
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    padding-top: 20vh;
+    flex: 1;
+}
+
+  .containerHome {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .moreBelow {
+    margin-bottom: 5vh;
+    width: 100%;
+    text-align: center;
+  }
+
+  .moreBelow button {
+    border: 1px solid rgb(158, 166, 175);
+    cursor: pointer;
+  }

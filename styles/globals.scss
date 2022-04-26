@@ -1,0 +1,169 @@
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0 5vw;
+  height: 100%;
+  font-family: 'Courier New', Courier, monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+  background-color: #1B2735;
+  background-repeat: no-repeat;
+  background-clip: border-box;
+  background-attachment: fixed;
+  color: rgb(158, 166, 175);
+  overflow: visible;
+}
+
+#root {
+  height: 100%;
+}
+
+code {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+button {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: rgb(158, 166, 175);
+}
+
+.App {
+  height: 100%;
+  text-align: center;
+  margin: 0;
+  -ms-overflow-style: none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.root-container {
+  z-index: 1;
+  position: absolute;
+}
+
+.transition {
+  z-index: 1;
+}
+
+.transition-enter {
+  opacity: 0;
+}
+
+.transition-enter-active {
+  opacity: 1;
+  transition: opacity 3500ms;
+}
+
+.vertical-transition-enter {
+  opacity: 0;
+  transform: translateY(20vh);
+}
+
+.vertical-transition-enter-active {
+  opacity: 1;
+  transition: opacity 3500ms, transform 1000ms;
+  transform: none;
+}
+
+.logo {
+  position: absolute;
+}
+
+
+.logo-transition-exit {
+  opacity: 1;
+}
+
+.logo-transition-exit-active {
+  opacity: 0;
+  transition: opacity 1000ms;
+}
+
+.bm-burger-button {
+  position: fixed;
+  width: 36px;
+  height: 30px;
+  left: 36px;
+  top: 36px;
+}
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+  background: rgb(94, 105, 119);
+}
+
+/* Color/shape of burger icon bars on hover*/
+.bm-burger-bars-hover {
+  background: #646363;
+}
+
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+}
+
+/* Color/shape of close button cross */
+.bm-cross {
+  background: #bdc3c7;
+  height: 20px !important;
+}
+
+/*
+Sidebar wrapper styles
+Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
+*/
+.bm-menu-wrap {
+  position: fixed;
+  height: 100%;
+}
+
+/* General sidebar styles */
+.bm-menu {
+  background: #373a47;
+  padding: 2.5em 1.5em 0;
+  font-size: 1.15em;
+  overflow-y: hidden !important;
+}
+
+/* Morph shape necessary with bubble or elastic */
+.bm-morph-shape {
+  fill: #373a47;
+}
+
+/* Wrapper for item list */
+.bm-item-list {
+  color: rgb(158, 166, 175);
+  padding: 0.8em;
+}
+
+/* Individual item */
+.bm-item {
+  display: inline-block;
+  text-align: left;
+  color: rgb(158, 166, 175);
+  font-size: x-large;
+  text-decoration: none;
+  margin-bottom: 10px;
+  outline: none;
+}
+
+.bm-item:focus {
+  outline: solid 2px;
+  outline-color: white;
+}
+
+.bm-item:hover {
+  color: gray;
+}
+
+/* Styling of overlay */
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.3);
+}
+

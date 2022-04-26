@@ -1,0 +1,33 @@
+.linkedin-logo {
+    height: 40px;
+    margin: 15px;
+}
+
+.email h4 {
+    display: inline-block;
+}
+
+.email a {
+    display: inline-block;
+    text-decoration: none;
+    color: rgb(158, 166, 175);
+}
+
+.declaration {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: smaller;
+}
+
+.contact-wrapper {
+    padding-top: 30vh;
+  }
+
+.contact-container {
+    height: 100vh;
+    a {
+        text-decoration: underline;
+        color: unset;
+    }
+}

@@ -1,0 +1,41 @@
+.projectsBox {
+    width: 100%;
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+}
+
+.projectDescription {
+    width: 100%;
+    height: auto;
+    @media screen and (min-width: 901px) {
+        min-height: 25vh;
+    }
+    min-height: 20vh;
+    margin: 20px 30px 0 35px;
+    padding: 10px;
+    border: solid 2px black;
+    position: relative;
+}
+
+.overlay {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #00000080;
+}
+
+.projectDescription:hover .overlay {
+    opacity: 1;
+}
+
+.projectDescription:hover .description {
+    opacity: 0.3;
+}

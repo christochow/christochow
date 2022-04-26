@@ -1,0 +1,21 @@
+.containerProjects {
+    height: 80vh;
+    padding-top: 10vh;
+}
+
+.projectBox {
+    width: 100%;
+    text-align: center;
+    padding-bottom: 10vh;
+}
+
+.github {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.github img {
+    color: white;
+    margin-left: 30%;
+}
