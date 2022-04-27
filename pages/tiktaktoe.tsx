@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import styles from '../styles/Tiktaktoe.module.scss';
 import useGame from '../hooks/useGame';
@@ -11,6 +11,7 @@ const TikTakToe = () => {
     const [player, setPlayer] = useState<string>('X');
     const [isVisible, setVisible] = useState<boolean>(false);
     const [result, setResult] = useState<String>('');
+    const nodeRef = useRef<HTMLDivElement>(null);
     const game = useGame(turn, player, difficulty, setTurn, setResult);
     useEffect(() => {
         const timeout = setTimeout(() => {
@@ -35,9 +36,9 @@ const TikTakToe = () => {
     }
     return (
         <div className={styles.container}>
-            <h1>TikTakToe!</h1>
-            <CSSTransition in={isVisible} timeout={1000} classNames="vertical-transition" unmountOnExit>
-                <div>
+            <CSSTransition nodeRef={nodeRef} in={isVisible} timeout={1000} classNames="vertical-transition" unmountOnExit>
+                <div ref={nodeRef}>
+                    <h1>TikTakToe!</h1>
                     {!setUpDone &&
                         <div>
                             <div className={styles["setting-container"]}>

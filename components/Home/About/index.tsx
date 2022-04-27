@@ -1,4 +1,4 @@
-import React from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { useRouter } from 'next/router'
 import styles from '../../../styles/Home.module.scss';
@@ -7,8 +7,9 @@ import Button from '@mui/material/Button';
 
 const About = (props: any) => {
     const router = useRouter();
-    const [isVisible, setVisible] = React.useState(false);
-    React.useEffect(() => {
+    const [isVisible, setVisible] = useState(false);
+    const nodeRef = useRef<HTMLDivElement>(null);
+    useEffect(() => {
         const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
                 setVisible(entry.isIntersecting);
@@ -23,8 +24,8 @@ const About = (props: any) => {
     });
     return (
         <div ref={props.reference} className={styles.containerIntro}>
-            <CSSTransition in={isVisible} timeout={1000} classNames="transition" unmountOnExit>
-                <div className={styles.textBox}>
+            <CSSTransition nodeRef={nodeRef} in={isVisible} timeout={1000} classNames="transition" unmountOnExit>
+                <div ref={nodeRef} className={styles.textBox}>
                     <h1>About myself</h1>
                     <p>
                         I am currently a 3rd year Computer Science Student at the University of Toronto.

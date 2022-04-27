@@ -1,4 +1,4 @@
-import React from 'react';
+import { useRef, useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import ProjectDetails from '../components/ProjectDetails';
 import github from '../public/github.png';
@@ -8,14 +8,15 @@ import styles from '../styles/Projects.module.scss';
 import { projects } from '../constants/projects';
 
 const Projects = () => {
-    const [isVisible, setVisible] = React.useState(false);
+    const [isVisible, setVisible] = useState(false);
+    const nodeRef = useRef<HTMLDivElement>(null);
     setTimeout(() => {
         setVisible(true);
     }, 100)
     return (
         <div className={styles.containerProjects}>
-            <CSSTransition in={isVisible} timeout={1000} classNames="vertical-transition" unmountOnExit>
-                <div className={styles.projectBox}>
+            <CSSTransition nodeRef={nodeRef} in={isVisible} timeout={1000} classNames="vertical-transition" unmountOnExit>
+                <div ref={nodeRef} className={styles.projectBox}>
                     <h1>Freelance/Side Projects</h1>
                     <div className={styles.github}>
                         <h4>Github:</h4>

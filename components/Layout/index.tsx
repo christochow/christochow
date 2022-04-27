@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import Loading from '../Loading';
 import Navbar from '../Navbar';
@@ -6,6 +6,8 @@ import Navbar from '../Navbar';
 const Layout = ({ children }: {children: JSX.Element}) => {
     const [loading, setLoading] = useState(true);
     const [show, setShow] = useState(false);
+    const nodeRef = useRef<HTMLDivElement>(null);
+    const mainNodeRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const timeout = setTimeout(() => {
@@ -23,11 +25,11 @@ const Layout = ({ children }: {children: JSX.Element}) => {
     return (
         <div className="App">
             <Navbar />
-            <CSSTransition in={loading} timeout={1000} classNames="logo-transition root-container" unmountOnExit>
-                <Loading />
+            <CSSTransition nodeRef={nodeRef} in={loading} timeout={1000} classNames="logo-transition root-container" unmountOnExit>
+                <main ref={nodeRef}><Loading /></main>
             </CSSTransition>
-            <CSSTransition in={show} timeout={1000} classNames="transition" unmountOnExit>
-                <main>{children}</main>
+            <CSSTransition nodeRef={mainNodeRef} in={show} timeout={1000} classNames="transition" unmountOnExit>
+                <main ref={mainNodeRef}>{children}</main>
             </CSSTransition>
         </div>
     )

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styles from '../styles/Contact.module.scss';
 import { CSSTransition } from 'react-transition-group';
 import linkedIn from '../public/linkedin.png';
@@ -7,6 +7,7 @@ import Image from 'next/image';
 
 function Contact() {
     const [isVisible, setVisible] = useState(false);
+    const nodeRef = useRef<HTMLDivElement>(null);
     useEffect(() => {
         const timeout = setTimeout(() => {
             setVisible(true);
@@ -15,8 +16,8 @@ function Contact() {
     }, []);
     return (
         <div className={styles["contact-container"]}>
-            <CSSTransition in={isVisible} timeout={1000} classNames="vertical-transition" unmountOnExit>
-                <div>
+            <CSSTransition nodeRef={nodeRef} in={isVisible} timeout={1000} classNames="vertical-transition" unmountOnExit>
+                <div ref={nodeRef}>
                     <div className={styles["contact-wrapper"]}>
                         <h1>{"Let's keep in contact!"}</h1>
                         <p>Find me on:</p>
