@@ -4,6 +4,8 @@ import styles from '../styles/Tiktaktoe.module.scss';
 import useGame from '../hooks/useGame';
 import { Button, Grid, MenuItem, Select, SelectChangeEvent } from '@mui/material';
 
+const SelectStyles = {backgroundColor: 'white', borderColor: 'black', marginLeft: '5px'};
+
 const TikTakToe = () => {
     const [setUpDone, setSetUpDone] = useState<boolean>(false);
     const [difficulty, setDifficulty] = useState<string>('novice');
@@ -56,7 +58,7 @@ const TikTakToe = () => {
                                             }
                                             setPlayer(e.target.value);
                                         }}
-                                        sx={{backgroundColor: 'white', borderColor: 'black'}}
+                                        sx={SelectStyles}
                                     >
                                         <MenuItem value="X">X</MenuItem>
                                         <MenuItem value="O">O</MenuItem>
@@ -67,7 +69,7 @@ const TikTakToe = () => {
                                     <Select
                                         value={difficulty}
                                         onChange={(e: SelectChangeEvent) => setDifficulty(e.target.value)}
-                                        sx={{backgroundColor: 'white', borderColor: 'black'}}
+                                        sx={SelectStyles}
                                     >
                                         <MenuItem value="beginner">Beginner</MenuItem>
                                         <MenuItem value="novice">Novice</MenuItem>
@@ -79,7 +81,7 @@ const TikTakToe = () => {
                                     <Select
                                         value={turn}
                                         onChange={(e: SelectChangeEvent) => setTurn(e.target.value)}
-                                        sx={{backgroundColor: 'white', borderColor: 'black'}}
+                                        sx={SelectStyles}
                                     >
                                         <MenuItem value={player}>You</MenuItem>
                                         <MenuItem value={player === 'X' ? 'O' : 'X'}>AI</MenuItem>
