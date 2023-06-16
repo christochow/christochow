@@ -8,13 +8,14 @@
     padding-right: 5vw;
 }
 
-.to-project {
+.to-project.MuiButton-root {
     background-color: white;
     border-color: black;
+    text-decoration: none;
+    color: #000;
+    font-family: 'Courier New', Courier, monospace;
 }
 
-.to-project a {
-    text-decoration: none;
+.to-project.MuiButton-root:hover {
     background-color: white;
-    color: #000;
 }

@@ -5,8 +5,8 @@
 }
 
 .project-description {
-    width: 25vw;
-    height: 28vh;
+    width: 30vw;
+    min-height: 28vh;
     margin: 20px 30px 0 35px;
     border: solid 2px black;
     position: relative;
