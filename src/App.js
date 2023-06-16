@@ -8,7 +8,6 @@ import Projects from './pages/Projects/ProjectsPage';
 import Contact from './pages/Contact/ContactPage';
 import TikTakToe from './pages/TikTakToe/TikTakToePage';
 import './App.css';
-import './stars.css';
 
 function showTitle(show, setShow, setLoading) {
   setTimeout(() => {
@@ -25,7 +24,7 @@ function App() {
   useEffect(() => {
     let listener = history.listen(() => window.scrollTo(0, 0));
     return () => listener();
-  })
+  }, [history])
   showTitle(show, setShow, setLoading);
   const toggleNavBar = () => setNavBar(!openNavBar)
   const onStateChange = (state) => {
