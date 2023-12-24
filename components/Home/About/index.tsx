@@ -28,8 +28,13 @@ const About = (props: any) => {
                 <div ref={nodeRef} className={styles.textBox}>
                     <h1>About myself</h1>
                     <p>
-                        I recently graduated with a Computer Science Specialist at the University of Toronto. I am
-                        currently a full time Technical Developer at the Jonah Group.
+                        {/* {"I am currently a full time Software Engineer at Pinterest. Before Pinterest," +
+                        " I've worked at Amazon and the Jonah Group. I have worked as a Full Stack developer throughout" + 
+                        " my career, but now I am shifting my focus to be more on the backend side"} */}
+                        {"I graduated 2 years ago with a Computer Science Specialist at the University of Toronto." + 
+                        " My most recent role is as aSoftware Development Engineer at Amazon. Before Amazon," +
+                        " I've worked at the Jonah Group as a Technical Developer. I have worked as a Full Stack developer throughout" + 
+                        " my career, but now I am shifting my focus to be more on the backend side"}
                     </p>
                     <p>
                         {"I am also a Software Developer that loves to code during my free time! Whenever I'm free I like to build fun"
@@ -38,7 +43,7 @@ const About = (props: any) => {
                     <Button variant='outlined' onClick={() => router.push('/projects')}><h3>Checkout my projects!</h3></Button>
                     <p>
                         {"Besides code I am also a big sports fan! I would watch any sport's that Toronto related and I play also play"
-                        + " in an amateur soccer league every Sunday"}
+                        + " soccer every week"}
                     </p>
                 </div>
             </CSSTransition>
