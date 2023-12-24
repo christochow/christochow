@@ -32,7 +32,7 @@ const About = (props: any) => {
                         " I've worked at Amazon and the Jonah Group. I have worked as a Full Stack developer throughout" + 
                         " my career, but now I am shifting my focus to be more on the backend side"} */}
                         {"I graduated 2 years ago with a Computer Science Specialist at the University of Toronto." + 
-                        " My most recent role is as aSoftware Development Engineer at Amazon. Before Amazon," +
+                        " My most recent role is as a Software Development Engineer at Amazon. Before Amazon," +
                         " I've worked at the Jonah Group as a Technical Developer. I have worked as a Full Stack developer throughout" + 
                         " my career, but now I am shifting my focus to be more on the backend side"}
                     </p>
